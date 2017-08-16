@@ -79,7 +79,7 @@ worldRooms = {
 	"Monster Room Start": {
 		OPENING: "You open the east door...",
 		DESC: ["You fight the urge to vomit from the intensity of the stench that now envelopes you.", "Oh my god...did you just hear the door lock behind you?", "Fighting panic, you inch down the hallway...", "You see a massive pulsating mass at the end of the hallway...", "and the faint outline of another door just behind it.", "As you get closer, the monster wakes up.", "It stares at you, blinks, and dares you to take one step closer, to make his day."],
-		WEST: "Monster Dead End",
+		WEST: "You whip around and rattle the doorknob...sadly it is locked. Looks like there's only one way to go.",
 		EAST: "Death"
 	},
     "Sewer Pipe": {
@@ -93,15 +93,14 @@ worldRooms = {
 		OPENING: "The smart thing to do in a sewer is to stay OUT of the water.",
 		DESC: ["And to try not to think about what's in that water. Ewwwww.", "You head east, trying to find your way out.", "A monster blocks your way.", "It dares you to take one step closer, to make his day."],
 		WEST:  "There\'s nowhere else to go. You can only try to pass the monster, or go back the way you came.",
-		# WEST: "Monster Dead End",
-		# EAST: "Monster Dead End",
+		EAST: "There\'s nowhere else to go. You can only try to pass the monster, or go back the way you came.",
 		NORTH: "Death"
 	},
 	"Swimming": {
 		OPENING: "Though not as skilled as Guybrush Threepwood™, you are quite capable of holding your breath underwater, even when that water is fetid and smelly.",
 		DESC: ["You swim down, down, down, until your lungs want to burst!", "Finally, you get past the obstructions and are able to swim back to the surface.", "You tread water and look around you.", "You could swim north. The water's flowing that way, so there might be a way out.", "You could swim west -- against the tide.", "East would take you back the way you came, which would probably hurt your lungs."],
-		WEST: "Return Swimming West",
-		EAST: "Return Swimming East",
+		WEST: "The sewer narrows, forcing the water to move faster. You lose headway and allow yourself to drift back to where you were.",
+		EAST: "You dive under the water, but your lungs drag you back up to the surface. They're not going to let you do THAT swim again.",
 		NORTH: "Escape"
 	},
 	"Ladder": {
@@ -114,27 +113,6 @@ worldRooms = {
 		OPENING: "You climb the ladder and push the manhole cover up.", 
 		DESC: ["Oh dear... a car must have parked on top of it. You can't get out.", "All is not lost though; you discover a pair of gloves hanging over one of the rungs of the ladder.", "You take them and put them on.", "You feel a strange tingly sensation all over...and suddenly bold", "SO BOLD", "You glare at the manhole cover and ready yourself to shove it aside, parked car and all."],
 		NORTH: "Escape Manhole"
-	},
-	# "Monster Dead End": {
-	# 	OPENING: "There\'s nowhere else to go",
-	# 	DESC: ["You can only try to pass the monster, or go back the way you came."],
-	# 	WEST: "Monster Dead End",
-	# 	EAST: "Monster Dead End",
-	# 	NORTH: "Death"
-	# },
-	"Return Swimming West": {
-		OPENING: "The sewer narrows, forcing the water to move faster.", 
-		DESC: ["You lose headway and allow yourself to drift back to where you were."],
-		WEST: "Return Swimming West",
-		EAST: "Return Swimming East",
-		NORTH: "Escape"
-	},
-	"Return Swimming East": {
-		OPENING: "You dive under the water, but your lungs drag you back up to the surface.", 
-		DESC: ["They're not going to let you do THAT swim again."],
-		WEST: "Return Swimming West",
-		EAST: "Return Swimming East",
-		NORTH: "Escape"
 	},
 	"Death": {
 		OPENING: "You defiantely step forward.", 
@@ -160,7 +138,7 @@ def displayRoom(room):
 	print("=" * len(room))
 	print(worldRooms[room][OPENING])
 	for phrase in worldRooms[room][DESC]:
-		# time.sleep(2)
+		time.sleep(2)
 		print(phrase)
 
 	exits = []
@@ -182,18 +160,14 @@ def movePath(direction):
 		room = worldRooms[room][direction]
 	else:
 		print(destination)
+		choice = choosePath()
+		movePath(choice)
 		time.sleep(2)
-		
-	
-	# if destination in worldRooms:
-	# 		# go there
-	# 	#else:
-	# 		#print message and stay here
 
 
 def choosePath():
 	path = ""
-	while path != "west" and path != "east" and path != "north" and path != "south" and path != "quit":  #input validation to make sure people don't enter nonsense
+	while path != "west" and path != "east" and path != "north" and path != "south" and path != "quit":  
 		path = input("Which path will you choose? :  ")
 
 	return path
