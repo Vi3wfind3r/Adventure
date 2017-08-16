@@ -139,7 +139,7 @@ def displayRoom(room):
 	print(worldRooms[room][OPENING])
 	for phrase in worldRooms[room][DESC]:
 		time.sleep(2)
-		print(phrase)
+		print(textwrap.fill(phrase, 70))
 
 	exits = []
 	for direction in (WEST, EAST, NORTH, SOUTH):
