@@ -159,7 +159,8 @@ def movePath(direction):
 	if destination in worldRooms:
 		room = worldRooms[room][direction]
 	else:
-		print(destination)
+		time.sleep(1)
+		print(textwrap.fill(destination, 70))
 		choice = choosePath()
 		movePath(choice)
 		time.sleep(2)
