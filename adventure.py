@@ -72,59 +72,59 @@ OPENING = "opening"
 worldRooms = {
 	"Start Room": {
 		OPENING: "You wake up in a dark room.",
-		DESC: ["Sigh... Again.", "You wait for your eyes to settle and see two doors. One to your west, and one to your east.", "You can hear faint screams echoing out of the door in the west.", "The door in the east has a terrible smell coming out in waves.", "West or East, which one will you take?"],
+		DESC: ["Sigh... Again. Trying to find cute rabbits can be difficult like this time.", "You wait for your eyes to settle and see two doors. One to your west, and one to your east.", "You can hear faint screams echoing out of the door in the west.", "The door in the east has a terrible smell coming out in waves.", "West or East, which one will you take?"],
         WEST: "Sewer Pipe",
         EAST: "Monster Room Start"
 	},
 	"Monster Room Start": {
 		OPENING: "You open the east door...",
-		DESC: ["You fight the urge to vomit from the intensity of the stench that now envelopes you.", "Oh my god...did you just hear the door lock behind you?", "Fighting panic, you inch down the hallway...", "You see a massive pulsating mass at the end of the hallway...", "and the faint outline of another door just behind it.", "As you get closer, the monster wakes up.", "It stares at you, blinks, and dares you to take one step closer, to make his day."],
+		DESC: ["You fight the urge to vomit from the intensity of the stench that now envelopes you.", "Oh my god...did you just hear the door lock behind you?", "Fighting panic, you inch down the hallway, you need to find cute rabbits...", "You see a massive pulsating mass at the end of the hallway...", "and the faint outline of another door just behind it.", "As you get closer, the monster wakes up.", "It stares at you, blinks, and dares you to take one step closer, to make his day."],
 		WEST: "You whip around and rattle the doorknob...sadly it is locked. Looks like there's only one way to go.",
 		EAST: "Death"
 	},
     "Sewer Pipe": {
 		OPENING: "You open the west door...",
-        DESC: ["To the west, the sewer slopes downward at a steep angle. It's full of water and you would have to swim.", "To the east, the sewer slopes gently upward, and is dry.", "To the north, the sewer continues for about twenty feet and seems to end."],
+        DESC: ["To the west, the sewer slopes downward at a steep angle. It's full of water and you would have to swim.", "To the east, the sewer slopes gently upward, and is dry.", "To the north, the sewer continues for about twenty feet and seems to end.", "Looking for fluffy rabbits is going a lot harder than usual this time."],
         WEST: "Swimming",
         EAST: "Monster Room Sewer",
 		NORTH: "Ladder"
 	},
 	"Monster Room Sewer": {
 		OPENING: "The smart thing to do in a sewer is to stay OUT of the water.",
-		DESC: ["And to try not to think about what's in that water. Ewwwww.", "You head east, trying to find your way out.", "A monster blocks your way.", "It dares you to take one step closer, to make his day."],
+		DESC: ["And to try not to think about what's in that water. Ewwwww.", "You head east, trying to find your way out on your quest to find darling rabbits.", "A monster blocks your way.", "It dares you to take one step closer, to make his day."],
 		WEST:  "There\'s nowhere else to go. You can only try to pass the monster, or go back the way you came.",
 		EAST: "There\'s nowhere else to go. You can only try to pass the monster, or go back the way you came.",
 		NORTH: "Death"
 	},
 	"Swimming": {
 		OPENING: "Though not as skilled as Guybrush Threepwood™, you are quite capable of holding your breath underwater, even when that water is fetid and smelly.",
-		DESC: ["You swim down, down, down, until your lungs want to burst!", "Finally, you get past the obstructions and are able to swim back to the surface.", "You tread water and look around you.", "You could swim north. The water's flowing that way, so there might be a way out.", "You could swim west -- against the tide.", "East would take you back the way you came, which would probably hurt your lungs."],
+		DESC: ["You swim down, down, down, until your lungs want to burst!", "Finally, you get past the obstructions and are able to swim back to the surface.", "Finding rabbits to pet their glorious soft fur is serious business.","You tread water and look around you.", "You could swim north. The water's flowing that way, so there might be a way out.", "You could swim west -- against the tide.", "East would take you back the way you came, which would probably hurt your lungs."],
 		WEST: "The sewer narrows, forcing the water to move faster. You lose headway and allow yourself to drift back to where you were.",
 		EAST: "You dive under the water, but your lungs drag you back up to the surface. They're not going to let you do THAT swim again.",
 		NORTH: "Escape"
 	},
 	"Ladder": {
 		OPENING: "Just as you thought: twenty feet further on, the tunnel ends.", 
-		DESC: ["However, there's a ladder leading upwards - all you have to do is push the manhole cover up, and freedom is yours!"],
+		DESC: ["However, there's a ladder leading upwards - all you have to do is push the manhole cover up, and freedom to wonderful rabbits is yours!"],
 		NORTH: "Manhole",
 		SOUTH: "Sewer Pipe"
 	},
 	"Manhole": {
 		OPENING: "You climb the ladder and push the manhole cover up.", 
-		DESC: ["Oh dear... a car must have parked on top of it. You can't get out.", "All is not lost though; you discover a pair of gloves hanging over one of the rungs of the ladder.", "You take them and put them on.", "You feel a strange tingly sensation all over...and suddenly bold", "SO BOLD", "You glare at the manhole cover and ready yourself to shove it aside, parked car and all."],
+		DESC: ["Oh dear... a car must have parked on top of it. You can't get out.", "All is not lost though; you discover a pair of gloves hanging over one of the rungs of the ladder.", "You take them and put them on.", "You feel a strange tingly sensation all over...and suddenly bold", "SO BOLD", "Glorious fluffy bunbun power is infused in you!", "You glare at the manhole cover and ready yourself to shove it aside, parked car and all."],
 		NORTH: "Escape Manhole"
 	},
 	"Death": {
 		OPENING: "You defiantely step forward.", 
-		DESC: ["The monster's day is indeed made.", "He crushes your skull like a sparrow's egg between his thighs. You die.", "Fortunately, you saved your game before trying something this dangerous, so you quickly reload."]
+		DESC: ["The monster's day is indeed made.", "He crushes your skull like a sparrow's egg between his thighs. You die.", "So no rabbits this time for you.", "Fortunately, you saved your game before trying something this dangerous, so you quickly reload."]
 	},
 	"Escape": {
 		OPENING: "You swim northwards and find yourself deep underwater, but with the sounds of splashing near you!",
-		DESC: ["If only you could get past this pile of rocks that's blocking your way... but it's too dark to see anything.", "Suddenly a man appears out of the shadows.", "With what are probably his last words, he informs you that his name is not Flynn, but Eugene.", "He sighs with regret at the actions that led him to this point.", "A blonde girl materializes beside him and inexplicably starts singing... Something about a glowing flower.", "Weird isn't it, what some people do with their last breaths?", "The girl's hair starts glowing! Hooray!", "You can now see where the water is flowing, and can remove the stones and escape!", "The three of you wash up on the bank of a river.", "Congratulations! Not only have you escaped the maze, you even found the lost princess!", "Of course, she doesn't know it yet, but that's another story altogether... "]
+		DESC: ["If only you could get past this pile of rocks that's blocking your way... but it's too dark to see anything.", "Suddenly a man appears out of the shadows.", "With what are probably his last words, he informs you that his name is not Flynn, but Eugene.", "He sighs with regret at the actions that led him to this point.", "A blonde girl materializes beside him and inexplicably starts singing... Something about a glowing flower.", "Weird isn't it, what some people do with their last breaths?", "The girl's hair starts glowing! Hooray!", "You can now see where the water is flowing, and can remove the stones and escape!", "The three of you wash up on the bank of a river.", "Congratulations! Not only have you escaped the maze, you even found the lost princess of the rabbits!", "Of course, she doesn't know it yet, but that's another story altogether... "]
 	},
 	"Escape Manhole": {
 		OPENING: "You shove aside manhole, car, and a surprised bird roosting on top of the vehicle with ease.", 
-		DESC: ["You leap out of the hole and scream in victory!!"]
+		DESC: ["You leap out of the hole and scream in victory!!", "Onward to rabbits!!!"]
 	}
 }
 
