@@ -1,6 +1,4 @@
-import random
-import time
-import textwrap
+import random, time, textwrap
 import pygame
 
 def winning():
@@ -115,7 +113,7 @@ worldRooms = {
 		NORTH: "Escape Manhole"
 	},
 	"Death": {
-		OPENING: "You defiantely step forward.", 
+		OPENING: "You defiantly step forward.", 
 		DESC: ["The monster's day is indeed made.", "He crushes your skull like a sparrow's egg between his thighs. You die.", "Fortunately, you saved your game before trying something this dangerous, so you quickly reload."]
 	},
 	"Escape": {
@@ -131,7 +129,6 @@ worldRooms = {
 room = "Start Room"
 screen_width = 80
 
-
 def displayRoom(room):
 	print(" ")
 	print(room)
@@ -139,7 +136,7 @@ def displayRoom(room):
 	print(worldRooms[room][OPENING])
 	for phrase in worldRooms[room][DESC]:
 		time.sleep(2)
-		print(textwrap.fill(phrase, 70))
+		print(textwrap.fill(phrase, screen_width))
 
 	exits = []
 	for direction in (WEST, EAST, NORTH, SOUTH):
@@ -160,11 +157,10 @@ def movePath(direction):
 		room = worldRooms[room][direction]
 	else:
 		time.sleep(1)
-		print(textwrap.fill(destination, 70))
+		print(textwrap.fill(destination, screen_width))
 		choice = choosePath()
 		movePath(choice)
 		time.sleep(2)
-
 
 def choosePath():
 	path = ""
@@ -172,7 +168,6 @@ def choosePath():
 		path = input("Which path will you choose? :  ")
 
 	return path
-
 
 playAgain = "yes"
 while playAgain == "yes" or playAgain =="y":
