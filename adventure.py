@@ -68,21 +68,11 @@ WEST = "west"
 EAST = "east"
 DESC = "desc"
 
-def startRoomDesc():
-	print("You wake up in a dark room.")
-	time.sleep(2)
-	print("Sigh... Again.")
-	time.sleep(2)
-	print("You wait for your eyes to settle and see two doors. One to your west, and one to your east.")
-	time.sleep(2)
-	print("You can hear faint screams echoing out of the door in the west. The door on the right has a terrible smell coming out in waves.")
-	time.sleep(2)
-	print("West or East, which one will you take?")
-
 worldRooms = {
 	"Start Room": {
         # DESC: startRoomDesc(),
-		DESC: "You wake up in a dark room. Sigh... Again. You wait for your eyes to settle and see two doors. One to your west, and one to your east. You can hear faint screams echoing out of the door in the west. The door in the east has a terrible smell coming out in waves. West or East, which one will you take?",
+		DESC: ["You wake up in a dark room.", "Sigh... Again.", "You wait for your eyes to settle and see two doors. One to your west, and one to your east.", "You can hear faint screams echoing out of the door in the west. The door in the east has a terrible smell coming out in waves.", "West or East, which one will you take?"],
+		# DESC: "You wake up in a dark room. Sigh... Again. You wait for your eyes to settle and see two doors. One to your west, and one to your east. You can hear faint screams echoing out of the door in the west. The door in the east has a terrible smell coming out in waves. West or East, which one will you take?",
         WEST: "Sewer Pipe",
         EAST: "Monster Room Start"
 	},
@@ -150,13 +140,27 @@ worldRooms = {
 room = "Start Room"
 screen_width = 80
 
+def startRoomDesc():
+	print("You wake up in a dark room.")
+	time.sleep(2)
+	print("Sigh... Again.")
+	time.sleep(2)
+	print("You wait for your eyes to settle and see two doors. One to your west, and one to your east.")
+	time.sleep(2)
+	print("You can hear faint screams echoing out of the door in the west. The door on the right has a terrible smell coming out in waves.")
+	time.sleep(2)
+	print("West or East, which one will you take?")
+
+
+
 def displayRoom(room):
 	print(" ")
 	print(room)
 	print("=" * len(room))
 	print(" ")
-	# print(worldRooms[room][DESC])
-	print("\n".join(textwrap.wrap(worldRooms[room][DESC], screen_width)))
+	for phrase in worldRooms[room][DESC]:
+		time.sleep(2)
+		print(phrase)
 
 	exits = []
 	for direction in (WEST, EAST, NORTH, SOUTH):
@@ -203,5 +207,5 @@ while playAgain == "yes" or playAgain =="y":
 
 
 ##CHRIS QUESTIONS
-#How to do time.sleep() for the string blocks? I tried to call the fu
+
 #How to change flow or room sequence for dead ends? Or if you get swept back to where you started like in the sewer?
