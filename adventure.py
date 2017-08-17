@@ -6,6 +6,7 @@ def winning():
 
 	black = (0, 0, 0)
 	white = (255, 255, 255)
+	blue = (66, 146, 244)
 
 	size=[700, 700]
 	screen=pygame.display.set_mode(size)
@@ -35,7 +36,7 @@ def winning():
 		screen.fill(black)
 
 		for i in range(len(snow_list)):
-			pygame.draw.circle(screen, white, snow_list[i], 2)
+			pygame.draw.circle(screen, blue, snow_list[i], 3)
 			snow_list[i][1] += 1
 			if snow_list[i][1] > 700:
 				y=random.randrange(-50, 10)
@@ -76,7 +77,7 @@ worldRooms = {
 	},
 	"Monster Room Start": {
 		OPENING: "You open the east door...",
-		DESC: ["You fight the urge to vomit from the intensity of the stench that now envelopes you.", "Oh my god...did you just hear the door lock behind you?", "Fighting panic, you inch down the hallway...", "You see a massive pulsating mass at the end of the hallway...", "and the faint outline of another door just behind it.", "As you get closer, the monster wakes up.", "It stares at you, blinks, and dares you to take one step closer, to make his day."],
+		DESC: ["You fight the urge to vomit from the intensity of the stench that now envelopes you.", "Oh my god...did you just hear the door lock behind you?", "Fighting panic, you inch down the hallway...", "You see a massive pulsating mass at the end of the hallway...", "and the faint outline of another door just behind it.", "As you get closer, the monster wakes up.", "It stares at you, blinks, and dares you to take one step closer, to make his day.", "You think quickly, should you try and go west back from the way you came?", "Or should you try to go east...past the beast in front of you?"],
 		WEST: "You whip around and rattle the doorknob...sadly it is locked. Looks like there's only one way to go.",
 		EAST: "Death"
 	},
@@ -135,7 +136,7 @@ def displayRoom(room):
 	print("=" * len(room))
 	print(worldRooms[room][OPENING])
 	for phrase in worldRooms[room][DESC]:
-		time.sleep(2)
+		# time.sleep(2)
 		print(textwrap.fill(phrase, screen_width))
 
 	exits = []
@@ -156,11 +157,11 @@ def movePath(direction):
 	if destination in worldRooms:
 		room = worldRooms[room][direction]
 	else:
-		time.sleep(1)
+		# time.sleep(1)
 		print(textwrap.fill(destination, screen_width))
 		choice = choosePath()
 		movePath(choice)
-		time.sleep(2)
+		# time.sleep(2)
 
 def choosePath():
 	path = ""
