@@ -104,6 +104,139 @@ def losing():
 
 	pygame.quit()
 
+def easteregg():
+	pygame.init()
+
+	black = (0, 0, 0)
+	white = (255, 255, 255)
+	green = (146, 219, 142)
+	grey = (61, 67, 68)
+
+	size=[700, 700]
+	screen=pygame.display.set_mode(size)
+	clock=pygame.time.Clock()
+
+	pygame.display.set_caption("Easter Egg!")
+
+	done=False
+
+	snake = pygame.image.load("./snake_pizza.png")
+
+	while done==False:
+			### ALL EVENT PROCESSING ###
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				done=True
+		
+		font=pygame.font.SysFont('Calibri', 35, True, False)
+		text_one=font.render("This would be the snake game...", True, green)
+		text_two=font.render("if I could code a working version...", True, green)
+
+		# All drawing code #
+		screen.fill(grey)
+		screen.blit(text_one, [100, 100])
+		screen.blit(text_two, [100, 150])
+		screen.blit(snake, [170, 250])
+
+		# MUST HAPPEN AFTER all drawing commands - updates screen
+		pygame.display.flip()
+
+		# Limit to 20 frames per second
+		clock.tick(20)
+
+	pygame.quit()
+
+
+
+	#########Below is the snake game code that is currently not working###########
+
+	# black = (0, 0, 0)
+	# white = (255, 255, 255)
+	# blue = (66, 146, 244)
+	# grey = (61, 67, 68)
+
+	# #width and height of snake
+	# segment_width = 15
+	# segment_height = 15
+	# segment_margin = 3
+
+	# #set speed
+	# x_change = segment_width + segment_margin
+	# y_change = 0
+
+	# class Segment(pygame.sprite.Sprite):
+	# 	#Constructor
+	# 	def _init_(self, x, y):
+	# 		super()._init_()
+
+	# 		self.image = pygame.Surface([segment_width, segment_height])
+	# 		self.image.fill(white)
+
+	# 		self.rect = self.image.get_rect()
+	# 		self.rect.x = x
+	# 		self.rect.y = y
+
+	# pygame.init()
+	# size=[700, 700]
+	# screen=pygame.display.set_mode(size)
+	# allspriteslist = pygame.sprite.Group()
+
+	# pygame.display.set_caption("EASTER EGG!")
+
+	# snake_segments = []
+	# for i in range (15):
+	# 	x = 250 - (segment_width + segment_margin) * i
+	# 	y = 30
+	# 	segment = Segment(x, y)
+	# 	snake_segments.append(segment)
+	# 	allspriteslist.add(segment)
+
+	# done=False
+	# clock=pygame.time.Clock()
+
+	# # easter_egg = pygame.image.load("")
+
+	# while done==False:
+	# 	for event in pygame.event.get():
+	# 		if event.type==pygame.QUIT:
+	# 			done=True
+		
+	# 		if event.type == pygame.KEYDOWN:
+	# 			if event.key == pygame.K_LEFT:
+	# 				x_change = (segment_width + segment_margin) * -1
+	# 				y_change = 0
+	# 			if event.key == pygame.K_RIGHT:
+	# 				x_change = (segment_width + segment_margin)
+	# 				y_change = 0
+	# 			if event.key == pygame.K_UP:
+	# 				x_change = 0
+	# 				y_change = (segment_height + segment_margin) * -1
+	# 			if event.key == pygame.K_DOWN:
+	# 				x_change = 0
+	# 				y_change = (segment_height + segment_margin)
+			
+	# 		old_segment = snake_segments.pop()
+	# 		allspriteslist.remove(old_segment)
+
+	# 		x = snake_segments[0].rect.x + x_change
+	# 		y = snake_segments[0].rect.y + y_change
+
+	# 		snake_segments.insert(0, segment)
+	# 		allspriteslist.add(segment)
+			
+	# 	screen.fill(black)
+	# 	allspriteslist.draw(screen)
+
+	# 	pygame.display.flip()
+
+	# 	clock.tick(5)
+
+	# pygame.quit()
+
+	#########Above is the snake game code that is currently not working###########
+
+	
+
 SOUTH = "south"
 NORTH = "north"
 WEST = "west"
@@ -208,7 +341,7 @@ def movePath(direction):
 
 def choosePath():
 	path = ""
-	while path != "west" and path != "east" and path != "north" and path != "south" and path != "quit":  
+	while path != "west" and path != "east" and path != "north" and path != "south" and path != "quit" and path != "snake":  
 		path = input("Which path will you choose? :  ")
 
 	return path
@@ -218,6 +351,9 @@ while playAgain == "yes" or playAgain =="y":
 	displayRoom(room)
 	choice = choosePath()
 	if choice == "quit":
+		break
+	if choice == "snake":
+		easteregg()
 		break
 	if choice in (WEST, EAST, SOUTH, NORTH):
 		movePath(choice)
