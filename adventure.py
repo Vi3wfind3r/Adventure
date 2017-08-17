@@ -7,6 +7,7 @@ def winning():
 	black = (0, 0, 0)
 	white = (255, 255, 255)
 	blue = (66, 146, 244)
+	grey = (61, 67, 68)
 
 	size=[700, 700]
 	screen=pygame.display.set_mode(size)
@@ -24,6 +25,8 @@ def winning():
 	done=False
 
 	clock=pygame.time.Clock()
+	bg = pygame.image.load("./transparent-controller.png")
+	award = pygame.image.load("./CVA_Winner_Small.png")
 
 	# Main Program Loop
 	while done==False:
@@ -33,10 +36,10 @@ def winning():
 				done=True
 		
 		# All drawing code #
-		screen.fill(black)
+		screen.fill(grey)
 
 		for i in range(len(snow_list)):
-			pygame.draw.circle(screen, blue, snow_list[i], 3)
+			pygame.draw.circle(screen, white, snow_list[i], 3)
 			snow_list[i][1] += 1
 			if snow_list[i][1] > 700:
 				y=random.randrange(-50, 10)
@@ -51,7 +54,9 @@ def winning():
 		text_x = screen.get_width() / 2 - text_rect.width / 2
 		text_y = screen.get_height() / 2 - text_rect.height / 2
 		screen.blit(text, [text_x, text_y])
-
+		screen.blit(bg, [200,0])
+		screen.blit(award, [150, 400])
+	
 		# MUST HAPPEN AFTER all drawing commands - updates screen
 		pygame.display.flip()
 
