@@ -66,6 +66,44 @@ def winning():
 	pygame.quit()
 
 
+def losing():
+	pygame.init()
+
+	black = (0, 0, 0)
+	white = (255, 255, 255)
+	blue = (66, 146, 244)
+	grey = (61, 67, 68)
+
+	size=[700, 700]
+	screen=pygame.display.set_mode(size)
+	clock=pygame.time.Clock()
+
+	pygame.display.set_caption("The Beast Ate You!")
+
+	done=False
+
+	game_over = pygame.image.load("./Game_Over.png")
+	monster = pygame.image.load("./monster.png")
+
+	while done==False:
+			### ALL EVENT PROCESSING ###
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				done=True
+		
+		# All drawing code #
+		screen.fill(grey)
+		screen.blit(game_over, [100, 0])
+		screen.blit(monster, [230, 350])
+
+		# MUST HAPPEN AFTER all drawing commands - updates screen
+		pygame.display.flip()
+
+		# Limit to 20 frames per second
+		clock.tick(20)
+
+	pygame.quit()
+
 SOUTH = "south"
 NORTH = "north"
 WEST = "west"
@@ -192,6 +230,7 @@ while playAgain == "yes" or playAgain =="y":
 		break
 	if room == "Death":
 		displayRoom(room)
+		losing()
 		playAgain = input("Do you want to play again? yes or y to continue playing: ")
 		room = "Start Room"
 
