@@ -26,7 +26,8 @@ def winning():
 
 	clock=pygame.time.Clock()
 	bg = pygame.image.load("./transparent-controller.png")
-	award = pygame.image.load("./CVA_Winner_Small.png")
+	# award = pygame.image.load("./victory_cat.png")
+	award = pygame.image.load("./gold-laurel.png")
 
 	# Main Program Loop
 	while done==False:
@@ -55,7 +56,7 @@ def winning():
 		text_y = screen.get_height() / 2 - text_rect.height / 2
 		screen.blit(text, [text_x, text_y])
 		screen.blit(bg, [200,0])
-		screen.blit(award, [150, 400])
+		screen.blit(award, [200, 400])
 	
 		# MUST HAPPEN AFTER all drawing commands - updates screen
 		pygame.display.flip()
@@ -235,7 +236,7 @@ def easteregg():
 
 	#########Above is the snake game code that is currently not working###########
 
-	
+
 
 SOUTH = "south"
 NORTH = "north"
