@@ -8,6 +8,7 @@ def winning():
 	white = (255, 255, 255)
 	blue = (66, 146, 244)
 	grey = (61, 67, 68)
+	yellow = (244, 237, 156)
 
 	size=[700, 700]
 	screen=pygame.display.set_mode(size)
@@ -26,8 +27,7 @@ def winning():
 
 	clock=pygame.time.Clock()
 	bg = pygame.image.load("./transparent-controller.png")
-	# award = pygame.image.load("./victory_cat.png")
-	award = pygame.image.load("./gold-laurel.png")
+	award = pygame.image.load("./wide-wreath.png")
 
 	# Main Program Loop
 	while done==False:
@@ -48,15 +48,20 @@ def winning():
 				x=random.randrange(0, 700)
 				snow_list[i][0]=x
 
-		font=pygame.font.SysFont('Calibri', 35, True, False)
+		font=pygame.font.SysFont('Calibri', 40, True, False)
+		font_big=pygame.font.SysFont('Calibri', 45, True, False)
 
-		text = font.render("You've Escaped!", True, white)
-		text_rect = text.get_rect()
+		text_one = font.render("You've Escaped!", True, white)
+		text_two = font_big.render("Best Gamer", True, yellow)
+		text_three = font.render("2017", True, yellow)
+		text_rect = text_one.get_rect()
 		text_x = screen.get_width() / 2 - text_rect.width / 2
 		text_y = screen.get_height() / 2 - text_rect.height / 2
-		screen.blit(text, [text_x, text_y])
+		screen.blit(text_one, [text_x, text_y])
+		screen.blit(text_two, [250, 500])
+		screen.blit(text_three, [320, 550])
 		screen.blit(bg, [200,0])
-		screen.blit(award, [200, 400])
+		screen.blit(award, [125, 400])
 	
 		# MUST HAPPEN AFTER all drawing commands - updates screen
 		pygame.display.flip()
@@ -256,7 +261,7 @@ worldRooms = {
 		OPENING: "You open the east door...",
 		DESC: ["You fight the urge to vomit from the intensity of the stench that now envelopes you.", "Oh my god...did you just hear the door lock behind you?", "Fighting panic, you inch down the hallway...", "You see a massive pulsating mass at the end of the hallway...", "and the faint outline of another door just behind it.", "As you get closer, the monster wakes up.", "It stares at you, blinks, and dares you to take one step closer, to make his day.", "You think quickly, should you try and go west back from the way you came?", "Or should you try to go east...past the beast in front of you?"],
 		WEST: "You whip around and rattle the doorknob...sadly it is locked. Looks like there's only one way to go.",
-		EAST: "Death"
+		EAST: "*******"
 	},
     "Sewer Pipe": {
 		OPENING: "You open the west door...",
@@ -270,7 +275,7 @@ worldRooms = {
 		DESC: ["And to try not to think about what's in that water. Ewwwww.", "You head east, trying to find your way out.", "A monster blocks your way.", "It dares you to take one step closer, to make his day."],
 		WEST:  "There\'s nowhere else to go. You can only try to pass the monster, or go back the way you came.",
 		EAST: "There\'s nowhere else to go. You can only try to pass the monster, or go back the way you came.",
-		NORTH: "Death"
+		NORTH: "*******"
 	},
 	"Swimming": {
 		OPENING: "Though not as skilled as Guybrush Threepwood™, you are quite capable of holding your breath underwater, even when that water is fetid and smelly.",
@@ -290,7 +295,7 @@ worldRooms = {
 		DESC: ["Oh dear... a car must have parked on top of it. You can't get out.", "All is not lost though; you discover a pair of gloves hanging over one of the rungs of the ladder.", "You take them and put them on.", "You feel a strange tingly sensation all over...and suddenly bold", "SO BOLD", "You glare at the manhole cover and ready yourself to shove it aside, parked car and all."],
 		NORTH: "Escape Manhole"
 	},
-	"Death": {
+	"*******": {
 		OPENING: "You defiantly step forward.", 
 		DESC: ["The monster's day is indeed made.", "He crushes your skull like a sparrow's egg between his thighs. You die.", "Fortunately, you saved your game before trying something this dangerous, so you quickly reload."]
 	},
@@ -365,7 +370,7 @@ while playAgain == "yes" or playAgain =="y":
 		displayRoom(room)
 		winning()
 		break
-	if room == "Death":
+	if room == "*******":
 		displayRoom(room)
 		losing()
 		playAgain = input("Do you want to play again? yes or y to continue playing: ")
