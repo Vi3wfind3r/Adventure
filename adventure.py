@@ -92,7 +92,7 @@ def losing():
 	monster = pygame.image.load("./monster.png")
 
 	while done==False:
-			### ALL EVENT PROCESSING ###
+		### ALL EVENT PROCESSING ###
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				done=True
@@ -129,7 +129,7 @@ def easteregg():
 	snake = pygame.image.load("./snake_pizza.png")
 
 	while done==False:
-			### ALL EVENT PROCESSING ###
+		### ALL EVENT PROCESSING ###
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				done=True
@@ -318,7 +318,7 @@ def displayRoom(room):
 	print("=" * len(room))
 	print(worldRooms[room][OPENING])
 	for phrase in worldRooms[room][DESC]:
-		# time.sleep(2)
+		time.sleep(2)
 		print(textwrap.fill(phrase, screen_width))
 
 	exits = []
@@ -339,11 +339,11 @@ def movePath(direction):
 	if destination in worldRooms:
 		room = worldRooms[room][direction]
 	else:
-		# time.sleep(1)
+		time.sleep(1)
 		print(textwrap.fill(destination, screen_width))
 		choice = choosePath()
 		movePath(choice)
-		# time.sleep(2)
+		time.sleep(2)
 
 def choosePath():
 	path = ""
@@ -376,6 +376,3 @@ while playAgain == "yes" or playAgain =="y":
 		playAgain = input("Do you want to play again? yes or y to continue playing: ")
 		room = "Start Room"
 
-
-##CHRIS QUESTIONS
-#how to use textwrap?
